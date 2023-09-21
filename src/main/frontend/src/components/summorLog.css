@@ -1,0 +1,204 @@
+.frameChild,
+.frameItem {
+    position: absolute;
+    top: 482px;
+    left: 560.5px;
+    background-color: #D9D9D9;
+    width: 585px;
+    height: 55px;
+}
+.frameChild,
+.frameItem {
+    top: 0;
+    left: 0;
+    width: 173px;
+    height: 206px;
+}
+.frameItem {
+    top: 30px;
+    left: 365px;
+    width: 174px;
+    height: 41px;
+}
+.frameChild1,
+.frameChild2,
+.frameChild3,
+.frameChild4,
+.frameChild5,
+.frameInner,
+.rectangleDiv {
+    position: absolute;
+    top: 41px;
+    left: 203px;
+    background-color: #D9D9D9;
+    width: 49px;
+    height: 49px;
+}
+.frameChild1,
+.frameChild2,
+.frameChild3,
+.frameChild4,
+.frameChild5,
+.rectangleDiv {
+    top: 101px;
+}
+.frameChild1,
+.frameChild2,
+.frameChild3,
+.frameChild4,
+.frameChild5 {
+    top: 41px;
+    left: 260px;
+}
+.frameChild2,
+.frameChild3,
+.frameChild4,
+.frameChild5 {
+    top: 101px;
+}
+.frameChild3,
+.frameChild4,
+.frameChild5 {
+    top: 116px;
+    left: 365px;
+    width: 323px;
+    height: 56px;
+}
+.frameChild4,
+.frameChild5 {
+    top: 3px;
+    left: 1024px;
+    width: 43px;
+    height: 35px;
+}
+.frameChild5 {
+    top: 44px;
+}
+.frameChild10,
+.frameChild11,
+.frameChild12,
+.frameChild6,
+.frameChild7,
+.frameChild8,
+.frameChild9 {
+    position: absolute;
+    top: 84px;
+    left: 1024px;
+    background-color: #D9D9D9;
+    width: 43px;
+    height: 35px;
+}
+.frameChild10,
+.frameChild11,
+.frameChild12,
+.frameChild7,
+.frameChild8,
+.frameChild9 {
+    top: 124px;
+}
+.frameChild10,
+.frameChild11,
+.frameChild12,
+.frameChild8,
+.frameChild9 {
+    top: 3px;
+    left: 1080px;
+    width: 120px;
+}
+.frameChild10,
+.frameChild11,
+.frameChild12,
+.frameChild9 {
+    top: 44px;
+}
+.frameChild10,
+.frameChild11,
+.frameChild12 {
+    top: 84px;
+}
+.frameChild11,
+.frameChild12 {
+    top: 124px;
+}
+.frameChild12 {
+    top: 164px;
+}
+.frameChild13,
+.frameChild14,
+.frameChild15,
+.frameChild16,
+.frameChild17 {
+    position: absolute;
+    top: 163px;
+    left: 1024px;
+    background-color: #D9D9D9;
+    width: 43px;
+    height: 35px;
+}
+.frameChild14,
+.frameChild15,
+.frameChild16,
+.frameChild17 {
+    top: 4px;
+    left: 819px;
+}
+.frameChild15,
+.frameChild16,
+.frameChild17 {
+    top: 45px;
+}
+.frameChild16,
+.frameChild17 {
+    top: 85px;
+}
+.frameChild17 {
+    top: 125px;
+}
+.frameChild18,
+.frameChild19,
+.frameChild20,
+.frameChild21,
+.frameChild22,
+.frameChild23 {
+    position: absolute;
+    top: 4px;
+    left: 875px;
+    background-color: #D9D9D9;
+    width: 120px;
+    height: 35px;
+}
+.frameChild19,
+.frameChild20,
+.frameChild21,
+.frameChild22,
+.frameChild23 {
+    top: 45px;
+}
+.frameChild20,
+.frameChild21,
+.frameChild22,
+.frameChild23 {
+    top: 85px;
+}
+.frameChild21,
+.frameChild22,
+.frameChild23 {
+    top: 125px;
+}
+.frameChild22,
+.frameChild23 {
+    top: 165px;
+}
+.frameChild23 {
+    top: 164px;
+    left: 819px;
+    width: 43px;
+}
+.rectangleParent {
+    position: absolute;
+    top: 662px;
+    left: 253px;
+    width: 1200px;
+    height: 206px;
+    overflow: hidden;
+}

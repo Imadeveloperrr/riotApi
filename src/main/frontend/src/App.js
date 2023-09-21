@@ -1,20 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import './App.css';
+import SummorLog from "./components/summorLog";
+import Profile from "./pages/profile";
 
 function App() {
-  const [hello, setHello] = useState('')
 
-  useEffect(() => {
-    axios.get('/api/hello')
-        .then(response => setHello(response.data))
-        .catch(error => console.log(error))
-  }, []);
+    const [summortext, setSummorText] = useState('')
 
-  return (
-      <div>
-        백엔드에서 가져온 데이터 입니다 : {hello}
-      </div>
-  )
+    const inputSummorHandler = (e) => {
+        if(e.key === 'Enter'){
+            alert(`입력된 텍스트 ${summortext}`);
+        }
+    }
+    return (
+        <div className="main">
+            <p className="helloThisWebsite">Hello This website riotAPI Test website</p>
+            <input
+                type="text"
+                spellCheck={false}
+                className="main-serchbox"
+                value={summortext}
+                onChange={(e) => setSummorText(e.target.value)}
+                onKeyDown={inputSummorHandler}
+            />
+            <p>{summortext}</p>
+            <SummorLog></SummorLog>
+        </div>
+    );
 }
 
 export default App;
