@@ -3,14 +3,19 @@ import axios from 'axios';
 import './App.css';
 import SummorLog from "./components/summorLog";
 import Profile from "./pages/profile";
+import {error} from "bfj/src/events";
 
 function App() {
 
-    const [summortext, setSummorText] = useState('')
+    const [summordata, setSummorData] = useState('')
+    const [summonername, setSummonerName] = useState('')
 
     const inputSummorHandler = (e) => {
         if(e.key === 'Enter'){
-            alert(`입력된 텍스트 ${summortext}`);
+            axios.get(`/api/Summoner/${summonername}`)
+                .then(response => setSummorData(response.data))
+                .catch(error => console.log(error))
+            alert(`전송 완료 : ${summonername}`);
         }
     }
     return (
@@ -20,11 +25,11 @@ function App() {
                 type="text"
                 spellCheck={false}
                 className="main-serchbox"
-                value={summortext}
-                onChange={(e) => setSummorText(e.target.value)}
+                value={summonername}
+                onChange={(e) => setSummonerName(e.target.value)}
                 onKeyDown={inputSummorHandler}
             />
-            <p>{summortext}</p>
+            <p>{summonername}</p>
             <SummorLog></SummorLog>
         </div>
     );

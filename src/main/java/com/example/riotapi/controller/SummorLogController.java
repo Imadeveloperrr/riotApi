@@ -1,6 +1,7 @@
 package com.example.riotapi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class SummorLogController {
 
-    @GetMapping("/Summoner")
-    public String test() {
-        return "Hello, world !";
+    @GetMapping("/Summoner/{summonername}")
+    public String getSummonerNameVariable(@PathVariable String summonername) {
+
+        return "Not Yet";
     }
 }
