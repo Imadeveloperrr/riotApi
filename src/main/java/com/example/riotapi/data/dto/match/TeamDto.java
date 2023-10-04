@@ -10,4 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 public class TeamDto {
+    private int teamId;
+    private boolean win;
 }
