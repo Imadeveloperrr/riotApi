@@ -43,5 +43,6 @@ public class ParticipantDto {
     private String summonerId;
     private int summonerLevel;
     private String summonerName;
+    private PerksDto perksDto;
 
 }

@@ -33,20 +33,23 @@ public class GameInfoServiceImpl implements GameInfoService {
                 .flatMap(tuple -> {
                     LeagueDto leagueDto = tuple.getT1();
                     List<String> matchIds = tuple.getT2();
-
-                    Flux<MatchDto> matchInfoFlux = Flux.fromIterable(matchIds)
+                    // Flux.fromIterable() -> List를 Flux<String>로 변환.
+                    Flux<MatchDto> matchInfoFlux = Flux.fromIterable(matchIds) // 각 매치들의 정보
                             .flatMap(matchId -> riotApiService.getMatchInfoById(matchId));
 
-                    return matchInfoFlux.collectList()
-                            .flatMap(matchDtos -> {
+                    return matchInfoFlux.collectList() // List<String>을 Mono<List<String>>합체
+                            .flatMap(matchDtos -> { // matchDtos = List<MatchDto>
                                 SummonerResponseDto responseDto = new SummonerResponseDto();
-                                // responseDto.setLeagueInfo(leagInfo);
+                                // responseDto.setLeagueInfo(leagueDto);
                                 List<List<String>> allSummonerNames = new ArrayList<>();
-
-                                for (MatchDto matchDto : matchDtos) {
+                                List<List<String>> allChampionIcons = new ArrayList<>();
+                                for (MatchDto matchDto : matchDtos) { // matchDtos 20개 각각의 요소를 matchDto에 할당
                                     List<String> summonerNames = new ArrayList<>();
+                                    List<String> championIcon = new ArrayList<>();
+
                                     for (ParticipantDto participantDto : matchDto.getInfo().getParticipants()) {
                                         summonerNames.add(participantDto.getSummonerName());
+                                        championIcon.add(participantDto.getChampionName());
                                     }
                                     allSummonerNames.add(summonerNames);
                                 }
@@ -56,6 +59,5 @@ public class GameInfoServiceImpl implements GameInfoService {
                             });
                 });
     }
-
 
 }
