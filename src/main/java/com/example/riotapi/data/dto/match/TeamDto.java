@@ -12,4 +12,6 @@ import lombok.Setter;
 public class TeamDto {
     private int teamId;
     private boolean win;
+
+
 }

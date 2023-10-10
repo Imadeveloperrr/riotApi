@@ -1,10 +1,12 @@
 package com.example.riotapi.service.impl;
 
+import com.example.riotapi.data.dto.GameParticipantDto;
 import com.example.riotapi.data.dto.LeagueDto;
 import com.example.riotapi.data.dto.SummonerDto;
 import com.example.riotapi.data.dto.SummonerResponseDto;
 import com.example.riotapi.data.dto.match.MatchDto;
 import com.example.riotapi.data.dto.match.ParticipantDto;
+import com.example.riotapi.data.utils.ResponseDtoMapper;
 import com.example.riotapi.service.GameInfoService;
 import com.example.riotapi.service.RiotApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.riotapi.data.utils.ResponseDtoMapper.mapToGameParticipantDto;
 
 @Service
 public class GameInfoServiceImpl implements GameInfoService {
@@ -40,21 +44,19 @@ public class GameInfoServiceImpl implements GameInfoService {
                     return matchInfoFlux.collectList() // List<String>을 Mono<List<String>>합체
                             .flatMap(matchDtos -> { // matchDtos = List<MatchDto>
                                 SummonerResponseDto responseDto = new SummonerResponseDto();
-                                // responseDto.setLeagueInfo(leagueDto);
-                                List<List<String>> allSummonerNames = new ArrayList<>();
-                                List<List<String>> allChampionIcons = new ArrayList<>();
-                                for (MatchDto matchDto : matchDtos) { // matchDtos 20개 각각의 요소를 matchDto에 할당
-                                    List<String> summonerNames = new ArrayList<>();
-                                    List<String> championIcon = new ArrayList<>();
 
-                                    for (ParticipantDto participantDto : matchDto.getInfo().getParticipants()) {
-                                        summonerNames.add(participantDto.getSummonerName());
-                                        championIcon.add(participantDto.getChampionName());
-                                    }
-                                    allSummonerNames.add(summonerNames);
+                                List<GameParticipantDto> gameParticipantList = new ArrayList<>();
+
+                                for (MatchDto matchDto : matchDtos) { // matchDtos 5개 각각의 요소를 matchDto에 할당
+                                    ParticipantDto firstParticipantDto = matchDto.getInfo().getParticipants().get(0);
+                                    List<ParticipantDto> participants = matchDto.getInfo().getParticipants();
+
+                                    GameParticipantDto gameParticipantDto = ResponseDtoMapper.mapToGameParticipantDto(firstParticipantDto, participants);
+                                    // 맵핑이 많아서 유틸리티 클래스로 나누기. ResponseDtoMapper
+
+                                    gameParticipantList.add(gameParticipantDto);
                                 }
-
-                                //responseDto.setAllSummonerNames(allSummonerNames);
+                                responseDto.setGameParticipantDtos(gameParticipantList);
                                 return Mono.just(responseDto);
                             });
                 });

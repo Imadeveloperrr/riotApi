@@ -42,7 +42,7 @@ public class RiotApiServiceImpl implements RiotApiService {
     @Override
     public Mono<List<String>> getMatchIdByPuuid(String puuid) {
         return webClient.get()
-                .uri("/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=20")
+                .uri("/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=5")
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<String>>() {});
     }

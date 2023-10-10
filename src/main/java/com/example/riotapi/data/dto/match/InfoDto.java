@@ -16,6 +16,7 @@ public class InfoDto {
     private long gameDuration;
     private long gameEndTimestamp;
     private long gameId;
+    private String championName;
     private String gameMode;
     private String gameName;
     private long gameStartTimestamp;
