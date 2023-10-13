@@ -31,7 +31,7 @@ public class GameInfoServiceImpl implements GameInfoService {
     public Mono<SummonerResponseDto> fetchGameInfo(String summonerName) {
         return riotApiService.getPuuidBySummonerName(summonerName)
                 .flatMap(summonerDto -> Mono.zip(
-                        riotApiService.getLeagueInfoBySummonerid(summonerDto.getId()),
+                        riotApiService.getLeagueInfoBySummonerId(summonerDto.getId()),
                         riotApiService.getMatchIdByPuuid(summonerDto.getPuuid())
                 ))
                 .flatMap(tuple -> {

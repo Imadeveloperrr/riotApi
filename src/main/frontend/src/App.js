@@ -13,7 +13,10 @@ function App() {
     const inputSummorHandler = (e) => {
         if(e.key === 'Enter'){
             axios.get(`/api/Summoner/${summonername}`)
-                .then(response => setSummorData(response.data))
+                .then(response => {
+                    setSummorData(response.data)
+                    console.log(response.data)
+                })
                 .catch(error => console.log(error))
             alert(`전송 완료 : ${summonername}`);
         }

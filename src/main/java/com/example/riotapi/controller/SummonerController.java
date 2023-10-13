@@ -11,14 +11,14 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api")
-public class SummorLogController {
+public class SummonerController {
 
     @Autowired
     private GameInfoService gameInfoService;
 
-    @GetMapping("/Summoner/{summonername}")
-    public Mono<SummonerResponseDto> getSummonerNameVariable(@PathVariable String summonername) {
+    @GetMapping("/Summoner/{summonerName}")
+    public Mono<SummonerResponseDto> getSummonerNameVariable(@PathVariable String summonerName) {
 
-        return gameInfoService.fetchGameInfo(summonername);
+        return gameInfoService.fetchGameInfo(summonerName);
     }
 }

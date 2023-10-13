@@ -13,7 +13,7 @@ public interface RiotApiService {
 
     Mono<List<String>> getMatchIdByPuuid(String puuid);
 
-    Mono<LeagueDto> getLeagueInfoBySummonerid(String summonerid);
+    Mono<LeagueDto> getLeagueInfoBySummonerId(String summonerId);
 
-    Mono<MatchDto> getMatchInfoById(String matchid);
+    Mono<MatchDto> getMatchInfoById(String matchId);
 }

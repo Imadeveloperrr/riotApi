@@ -48,17 +48,17 @@ public class RiotApiServiceImpl implements RiotApiService {
     }
 
     @Override
-    public Mono<LeagueDto> getLeagueInfoBySummonerid(String summonerid) {
+    public Mono<LeagueDto> getLeagueInfoBySummonerId(String summonerId) {
         return webClient.get()
-                .uri("/lol/league/v4/entries/by-summoner/" + summonerid)
+                .uri("/lol/league/v4/entries/by-summoner/" + summonerId)
                 .retrieve()
                 .bodyToMono(LeagueDto.class);
     }
 
     @Override
-    public Mono<MatchDto> getMatchInfoById(String matchid) {
+    public Mono<MatchDto> getMatchInfoById(String matchId) {
         return webClient.get()
-                .uri("/lol/match/v5/matches/" + matchid)
+                .uri("/lol/match/v5/matches/" + matchId)
                 .retrieve()
                 .bodyToMono(MatchDto.class);
     }

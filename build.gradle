@@ -8,7 +8,7 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '20'
+    sourceCompatibility = '19'
 }
 
 configurations {
@@ -29,6 +29,8 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.1'
+    testImplementation 'io.projectreactor:reactor-test:3.5.9'
 }
 
 /* react start */
@@ -46,7 +48,7 @@ processResources {
     dependsOn "buildReact"
 }
 
-task buildReact(type: Exec) {
+tasks.register('buildReact', Exec) {
     dependsOn "installReact"
     workingDir "$webappDir"
     inputs.dir "$webappDir"
@@ -58,7 +60,7 @@ task buildReact(type: Exec) {
     }
 }
 
-task installReact(type: Exec) {
+tasks.register('installReact', Exec) {
     workingDir "$webappDir"
     inputs.dir "$webappDir"
     group = BasePlugin.BUILD_GROUP

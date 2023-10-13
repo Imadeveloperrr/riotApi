@@ -20,7 +20,8 @@ public class ResponseDtoMapper {
         gameParticipantDto.setItem4(firstParticipantDto.getItem4());
         gameParticipantDto.setItem5(firstParticipantDto.getItem5());
         gameParticipantDto.setItem6(firstParticipantDto.getItem6());
-        //gameParticipantDto.setPerkId1(firstParticipantDto.getPerksDto());
+        gameParticipantDto.setPerkId1(firstParticipantDto.getPerksDto().getStyles().get(0).getSelections().get(0).getPerk()); //주룬의 첫번째 룬
+        gameParticipantDto.setPerkId2(firstParticipantDto.getPerksDto().getStyles().get(1).getStyle()); // 부룬
         gameParticipantDto.setSummonerId1(firstParticipantDto.getSummoner1Id());
         gameParticipantDto.setSummonerId2(firstParticipantDto.getSummoner2Id());
 
